@@ -101,20 +101,6 @@
         this.form.validateFields((err) => {
           if (!err) {
             that.confirmLoading = true;
-            if(this.userId == null){
-              getAction(this.url.userId).then((res)=>{
-                if(res.success){
-                  let formData = {userId:res.result,
-                  departIdList:this.departList}
-                  console.log(formData)
-                  that.$emit('ok', formData);
-                }
-              }).finally(() => {
-                that.departList = [];
-                that.confirmLoading = false;
-                that.close();
-              })
-            }else {
               let formData = {userId:this.userId,
                 departIdList:this.departList}
               console.log(formData)
@@ -122,7 +108,7 @@
               that.$emit('ok', formData);
               that.confirmLoading = false;
               that.close();
-            }
+
           }
         })
       },
