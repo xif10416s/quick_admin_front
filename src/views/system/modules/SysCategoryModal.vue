@@ -18,14 +18,14 @@
             v-decorator="['pid', validatorRules.pid]"
             dict="sys_category,name,id"
             pidField="pid"
-            pidValue="0">
+            pidValue="-1">
           </j-tree-select>
         </a-form-item>
-          
+
         <a-form-item label="分类名称" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="[ 'name', validatorRules.name]" placeholder="请输入分类名称"></a-input>
         </a-form-item>
-          
+
         <!--<a-form-item label="类型编码" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input v-decorator="[ 'code', validatorRules.code]" placeholder="请输入类型编码"></a-input>
         </a-form-item>-->
@@ -36,8 +36,8 @@
             编码值前缀需和父节点保持一致,比如父级节点编码是A01则当前编码必须以A01开头
           </span>
         </a-form-item>-->
-          
-        
+
+
       </a-form>
     </a-spin>
   </a-modal>
@@ -48,10 +48,10 @@
   import { httpAction,getAction } from '@/api/manage'
   import pick from 'lodash.pick'
   import JTreeSelect from '@/components/jeecg/JTreeSelect'
-  
+
   export default {
     name: "SysCategoryModal",
-    components: { 
+    components: {
       JTreeSelect
     },
     data () {
@@ -90,7 +90,7 @@
         expandedRowKeys:[],
         pidField:"pid",
         subExpandedKeys:[]
-     
+
       }
     },
     created () {
@@ -140,7 +140,7 @@
               that.close();
             })
           }
-         
+
         })
       },
       handleCancel () {
@@ -187,8 +187,8 @@
           }
         })
       },
-      
-      
+
+
     }
   }
 </script>

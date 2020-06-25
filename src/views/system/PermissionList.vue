@@ -48,9 +48,9 @@
               <a-menu-item>
                 <a href="javascript:;" @click="handleAddSub(record)">添加下级</a>
               </a-menu-item>
-              <a-menu-item>
-                <a href="javascript:;" @click="handleDataRule(record)">数据规则</a>
-              </a-menu-item>
+              <!--<a-menu-item>-->
+                <!--<a href="javascript:;" @click="handleDataRule(record)">数据规则</a>-->
+              <!--</a-menu-item>-->
 
               <a-menu-item>
                 <a-popconfirm title="确定删除吗?" @confirm="() => handleDelete(record.id)">

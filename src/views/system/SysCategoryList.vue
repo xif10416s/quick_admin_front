@@ -1,6 +1,6 @@
 <template>
   <a-card :bordered="false">
-    
+
     <!-- 操作按钮区域 -->
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
@@ -35,7 +35,7 @@
         @change="handleTableChange"
         @expand="handleExpand"
         v-bind="tableProps">
-        
+
         <span slot="action" slot-scope="text, record">
           <a @click="handleEdit(record)">编辑</a>
           <a-divider type="vertical" />
@@ -55,11 +55,11 @@
 
 <script>
 
-  import { getAction } from '@/api/manage'
+  import { getAction ,postAction} from '@/api/manage'
   import { JeecgListMixin } from '@/mixins/JeecgListMixin'
   import SysCategoryModal from './modules/SysCategoryModal'
   import { deleteAction } from '@/api/manage'
-  
+
   export default {
     name: "SysCategoryList",
     mixins:[JeecgListMixin],
@@ -128,7 +128,7 @@
         this.expandedRowKeys = []
         let params = this.getQueryParams()
         return new Promise((resolve) => {
-          getAction(this.url.list,params).then(res=>{
+          postAction(this.url.list,params).then(res=>{
             if(res.success){
               let result = res.result
               if(Number(result.total)>0){
@@ -254,11 +254,12 @@
         }
       },
       handleAddSub(record){
+        console.log(record.id +"  ")
         this.subExpandedKeys = [];
         this.getExpandKeysByPid(record.id,this.dataSource,this.dataSource)
         this.$refs.modalForm.subExpandedKeys = this.subExpandedKeys;
         this.$refs.modalForm.title = "添加子分类";
-        this.$refs.modalForm.edit({'pid':record.id});
+        this.$refs.modalForm.edit({'pid':record.id.toString()   });
         this.$refs.modalForm.disableSubmit = false;
       },
       handleDelete: function (record) {
@@ -292,8 +293,8 @@
           }
         }
       },
-      
-       
+
+
     }
   }
 </script>

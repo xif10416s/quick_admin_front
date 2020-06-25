@@ -184,7 +184,7 @@
 
       // 查询职务信息
       queryPositionInfo() {
-        getAction(this.url.listByPosition, { pageSize: 99999 }).then(res => {
+        postAction(this.url.listByPosition, { pageSize: 99999 }).then(res => {
           if (res.success) {
             let positionInfo = {}
             res.result.records.forEach(record => {

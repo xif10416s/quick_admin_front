@@ -53,21 +53,21 @@
           </div>
           <a-divider :dashed="true" />
 
-          <div class="account-center-team">
-            <div class="teamTitle">团队</div>
-            <a-spin :spinning="teamSpinning">
-              <div class="members">
-                <a-row>
-                  <a-col :span="12" v-for="(item, index) in teams" :key="index">
-                    <a>
-                      <a-avatar size="small" :src="item.avatar" />
-                      <span class="member">{{ item.name }}</span>
-                    </a>
-                  </a-col>
-                </a-row>
-              </div>
-            </a-spin>
-          </div>
+          <!--<div class="account-center-team">-->
+            <!--<div class="teamTitle">团队</div>-->
+            <!--<a-spin :spinning="teamSpinning">-->
+              <!--<div class="members">-->
+                <!--<a-row>-->
+                  <!--<a-col :span="12" v-for="(item, index) in teams" :key="index">-->
+                    <!--<a>-->
+                      <!--<a-avatar size="small" :src="item.avatar" />-->
+                      <!--<span class="member">{{ item.name }}</span>-->
+                    <!--</a>-->
+                  <!--</a-col>-->
+                <!--</a-row>-->
+              <!--</div>-->
+            <!--</a-spin>-->
+          <!--</div>-->
         </a-card>
       </a-col>
       <a-col :md="24" :lg="17">
@@ -129,7 +129,7 @@
       }
     },
     mounted () {
-      this.getTeams()
+      // this.getTeams()
     },
     methods: {
       ...mapGetters(["nickname", "avatar"]),
@@ -137,11 +137,11 @@
           return getFileAccessHttpUrl(this.avatar());
       },
       getTeams() {
-        this.$http.get('/api/workplace/teams')
-          .then(res => {
-            this.teams = res.result
-            this.teamSpinning = false
-          })
+        // this.$http.get('/api/workplace/teams')
+        //   .then(res => {
+        //     this.teams = res.result
+        //     this.teamSpinning = false
+        //   })
       },
 
       handleTabChange (key, type) {

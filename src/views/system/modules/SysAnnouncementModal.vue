@@ -18,7 +18,7 @@
               :labelCol="labelCol"
               :wrapperCol="wrapperCol"
               label="标题">
-              <a-input placeholder="请输入标题" v-decorator="['titile', validatorRules.title]" :readOnly="disableSubmit"/>
+              <a-input placeholder="请输入标题" v-decorator="['title', validatorRules.title]" :readOnly="disableSubmit"/>
             </a-form-item>
           </a-col>
           <a-col :span="24/2">
@@ -218,7 +218,7 @@
           });
         }
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'endTime','startTime','titile','msgContent','sender','priority','msgCategory','msgType','sendStatus','delFlag','msgAbstract'))
+          this.form.setFieldsValue(pick(this.model,'endTime','startTime','title','msgContent','sender','priority','msgCategory','msgType','sendStatus','delFlag','msgAbstract'))
         });
       },
       close () {

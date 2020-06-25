@@ -262,7 +262,7 @@
           }
         }
         if (!notExist) return
-        getAction(this.valueUrl || this.listUrl, {
+        postAction(this.valueUrl || this.listUrl, {
           // 这里最后加一个 , 的原因是因为无论如何都要使用 in 查询，防止后台进行了模糊匹配，导致查询结果不准确
           [this.valueKey]: value.join(',') + ',',
           pageNo: 1,

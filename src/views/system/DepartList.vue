@@ -155,9 +155,9 @@
             </a-empty>
           </a-card>
         </a-tab-pane>
-        <a-tab-pane tab="部门权限" key="2" forceRender>
-          <depart-auth-modal ref="departAuth"/>
-        </a-tab-pane>
+        <!--<a-tab-pane tab="部门权限" key="2" forceRender>-->
+          <!--<depart-auth-modal ref="departAuth"/>-->
+        <!--</a-tab-pane>-->
       </a-tabs>
 
     </a-col>
@@ -584,7 +584,7 @@
         }
       }
       // <!---- author:os_chengtgen -- date:20190827 --  for:切换父子勾选模式 =======------>
-      
+
     },
     created() {
       this.currFlowId = this.$route.params.id

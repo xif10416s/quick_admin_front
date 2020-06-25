@@ -13,7 +13,7 @@
     </template>
     <a-card class="daily-article" :loading="loading">
       <a-card-meta
-        :title="record.titile"
+        :title="record.title"
         :description="'发布人：'+record.sender + ' 发布时间： ' + record.sendTime">
       </a-card-meta>
       <a-divider />

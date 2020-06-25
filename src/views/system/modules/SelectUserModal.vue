@@ -55,7 +55,7 @@
 
 <script>
   import {filterObj} from '@/utils/util'
-  import {getAction} from '@/api/manage'
+  import {postAction} from '@/api/manage'
 
   export default {
     name: "SelectUserModal",

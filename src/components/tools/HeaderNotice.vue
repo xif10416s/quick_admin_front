@@ -31,7 +31,7 @@
             <a-list>
               <a-list-item :key="index" v-for="(record, index) in announcement1">
                 <div style="margin-left: 5%;width: 80%">
-                  <p><a @click="showAnnouncement(record)">{{ record.titile }}</a></p>
+                  <p><a @click="showAnnouncement(record)">{{ record.title }}</a></p>
                   <p style="color: rgba(0,0,0,.45);margin-bottom: 0px">{{ record.createTime }} 发布</p>
                 </div>
                 <div style="text-align: right">
@@ -49,7 +49,7 @@
             <a-list>
               <a-list-item :key="index" v-for="(record, index) in announcement2">
                 <div style="margin-left: 5%;width: 80%">
-                  <p><a @click="showAnnouncement(record)">{{ record.titile }}</a></p>
+                  <p><a @click="showAnnouncement(record)">{{ record.title }}</a></p>
                   <p style="color: rgba(0,0,0,.45);margin-bottom: 0px">{{ record.createTime }} 发布</p>
                 </div>
                 <div style="text-align: right">

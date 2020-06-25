@@ -8,7 +8,7 @@
 
           <a-col :span="6">
             <a-form-item label="标题">
-              <a-input placeholder="请输入标题" v-model="queryParam.titile"></a-input>
+              <a-input placeholder="请输入标题" v-model="queryParam.title"></a-input>
             </a-form-item>
           </a-col>
           <!--<a-col :span="6">
@@ -110,12 +110,13 @@
   import {doReleaseData, doReovkeData} from '@/api/api'
   import {getAction} from '@/api/manage'
   import {JeecgListMixin} from '@/mixins/JeecgListMixin'
-
+  import moment from 'moment'
   export default {
     name: "SysAnnouncementList",
     mixins: [JeecgListMixin],
     components: {
-      SysAnnouncementModal
+      SysAnnouncementModal,
+      moment
     },
     data() {
       return {
@@ -138,7 +139,7 @@
           {
             title: '标题',
             align: "center",
-            dataIndex: 'titile'
+            dataIndex: 'title'
           },
           {
             title: '消息类型',
@@ -218,12 +219,19 @@
           {
             title: '发布时间',
             align: "center",
-            dataIndex: 'sendTime'
+            dataIndex: 'sendTime' ,
+            customRender: (text) => {
+              return moment(text).format('YYYY-MM-DD hh:mm:ss')
+            }
+
           },
           {
             title: '撤销时间',
             align: "center",
-            dataIndex: 'cancelTime'
+            dataIndex: 'cancelTime',
+            customRender: (text) => {
+              return moment(text).format('YYYY-MM-DD hh:mm:ss')
+            }
           },
           /*{
                 title: '删除状态（0，正常，1已删除）',

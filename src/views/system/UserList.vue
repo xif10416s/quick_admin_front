@@ -189,7 +189,7 @@
   import SysUserAgentModal from "./modules/SysUserAgentModal";
   import JInput from '@/components/jeecg/JInput'
   import UserRecycleBinModal from './modules/UserRecycleBinModal'
-
+  import moment from 'moment'
   export default {
     name: "UserList",
     mixins: [JeecgListMixin],
@@ -198,7 +198,8 @@
       UserModal,
       PasswordModal,
       JInput,
-      UserRecycleBinModal
+      UserRecycleBinModal,
+      moment
     },
     data() {
       return {
@@ -249,6 +250,10 @@
             align: "center",
             width: 100,
             dataIndex: 'birthday'
+            // ,
+            // customRender: (text) => {
+            //   return moment(text).format('YYYY-MM-DD')
+            // }
           },
           {
             title: '手机号码',

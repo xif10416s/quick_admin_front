@@ -265,7 +265,7 @@
               align:"center",
               sorter: true,
               customRender: (text) => {
-                return moment(text).format('YYYY-MM-DD')
+                return moment(text).format('YYYY-MM-DD hh:mm:ss')
               }
             },
             {
@@ -409,7 +409,7 @@
         let params = this.getQueryParams2()//查询条件
         params.roleId = this.currentRoleId
         this.loading2 = true
-        getAction(this.url.list2, params).then((res) => {
+        postAction(this.url.list2, params).then((res) => {
           if (res.success) {
             this.dataSource2 = res.result.records
             this.ipagination2.total = res.result.total

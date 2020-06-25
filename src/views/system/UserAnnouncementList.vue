@@ -7,7 +7,7 @@
 
           <a-col :span="6">
             <a-form-item label="标题">
-              <a-input placeholder="请输入标题" v-model="queryParam.titile"></a-input>
+              <a-input placeholder="请输入标题" v-model="queryParam.title"></a-input>
             </a-form-item>
           </a-col>
           <a-col :span="6">
@@ -56,13 +56,14 @@
   import ShowAnnouncement from '@/components/tools/ShowAnnouncement'
   import {JeecgListMixin} from '@/mixins/JeecgListMixin'
   import DynamicNotice from '../../components/tools/DynamicNotice'
-
+  import moment from 'moment'
   export default {
     name: "UserAnnouncementList",
     mixins: [JeecgListMixin],
     components: {
       DynamicNotice,
-      ShowAnnouncement
+      ShowAnnouncement,
+      moment
     },
     data () {
       return {
@@ -71,7 +72,7 @@
         columns: [{
           title: '标题',
           align:"center",
-          dataIndex: 'titile'
+          dataIndex: 'title'
         },{
           title: '消息类型',
           align: "center",
@@ -93,6 +94,10 @@
           title: '发布时间',
           align:"center",
           dataIndex: 'sendTime'
+          ,
+          customRender: (text) => {
+            return moment(text).format('YYYY-MM-DD hh:mm:ss')
+          }
         },{
           title: '优先级',
           align:"center",

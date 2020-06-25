@@ -291,7 +291,7 @@
         });
       },
       loadUserRoles(userid){
-        queryUserRole({userid:userid}).then((res)=>{
+        queryUserRole({userId:userid}).then((res)=>{
           if(res.success){
             this.selectedRole = res.result;
           }else{

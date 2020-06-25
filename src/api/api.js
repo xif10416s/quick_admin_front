@@ -13,7 +13,7 @@ const queryall = (params)=>getAction("/sys/role/queryall",params);
 const addUser = (params)=>postAction("/sys/user/add",params);
 const editUser = (params)=>putAction("/sys/user/edit",params);
 const queryUserRole = (params)=>getAction("/sys/user/queryUserRole",params);
-const getUserList = (params)=>getAction("/sys/user/list",params);
+const getUserList = (params)=>postAction("/sys/user/list",params);
 const frozenBatch = (params)=>putAction("/sys/user/frozenBatch",params);
 //验证用户是否存在
 const checkOnlyUser = (params)=>getAction("/sys/user/checkOnlyUser",params);
@@ -92,7 +92,15 @@ const checkRuleByCode = (params) => getAction('/sys/checkRule/checkByCode', para
 //我的通告
 const getUserNoticeInfo= (params)=>getAction("/sys/sysAnnouncementSend/getMyAnnouncementSend",params);
 
+
+//oa管理
+const startLeaveApply = (params)=>postAction("/oa/leaveApply/startLeaveApply",params);
+const auditLeaveApply = (params)=>getAction("/oa/leaveApply/audit",params);
+
+
 export {
+  auditLeaveApply,
+  startLeaveApply,
   addRole,
   editRole,
   checkRoleCode,

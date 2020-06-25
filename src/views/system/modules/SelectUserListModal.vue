@@ -172,7 +172,12 @@
       edit(selectUser,userIds){
         //控制台报错
         if(userIds&&userIds.length>0){
-          this.selectedRowKeys = userIds.split(',');
+          var intIds = []
+          userIds.split(',').forEach(item => {
+            intIds.push(+item);
+          });
+          console.log(intIds +"selectedRowKeys")
+          this.selectedRowKeys = intIds;
         }else{
           this.selectedRowKeys = []
         }

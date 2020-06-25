@@ -13,7 +13,7 @@ export const JeecgListMixin = {
   data(){
     return {
       //token header
-      tokenHeader: {'Authorization': Vue.ls.get(ACCESS_TOKEN)},
+      tokenHeader: {'Authorization':'Bearer ' +  Vue.ls.get(ACCESS_TOKEN)},
       /* 查询条件-请不要在queryParam中声明非字符串值的属性 */
       queryParam: {},
       /* 数据源 */
@@ -64,7 +64,7 @@ export const JeecgListMixin = {
   methods:{
     loadData(arg) {
       if(!this.url.list){
-        this.$message.error("请设置url.list属性!")
+        // this.$message.error("请设置url.list属性!")
         return
       }
       //加载数据 若传入参数1则加载第一页的内容

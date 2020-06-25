@@ -111,7 +111,7 @@
           dictName: "",
           itemText: "",
           delFlag: "1",
-          status: [],
+          status: null,
         },
         title: "操作",
         visible: false,
