@@ -7,8 +7,8 @@
         <a-row :gutter="24">
 
           <a-col :md="6" :sm="12">
-            <a-form-item label="流程名称">
-              <a-input placeholder="输入流程名称" v-model="queryParam.name"></a-input>
+            <a-form-item label="发起人">
+              <a-input placeholder="输入发起人名称" v-model="queryParam.involvedUser"></a-input>
             </a-form-item>
           </a-col>
 
@@ -164,7 +164,7 @@
           {
             title: '流程实例Id',
             align: "center",
-            dataIndex: 'processDefinitionId',
+            dataIndex: 'processInstanceId',
           },
           {
             title: '开始时间',

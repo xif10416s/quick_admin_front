@@ -7,7 +7,7 @@ import { filterObj } from '@/utils/util';
 import { deleteAction,downFile,getFileAccessHttpUrl } from '@/api/manage'
 import Vue from 'vue'
 import { ACCESS_TOKEN } from "@/store/mutation-types"
-import { postAction } from '../api/manage'
+import { getAction, postAction } from '../api/manage'
 
 export const JeecgListMixin = {
   data(){
@@ -80,6 +80,10 @@ export const JeecgListMixin = {
         }
         if(res.code===510){
           this.$message.warning(res.message)
+        }
+        if(res.code===401){
+          this.$message.warning(res.message)
+          window.location.href="/";
         }
         this.loading = false;
       })
