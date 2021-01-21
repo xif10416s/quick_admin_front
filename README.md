@@ -35,6 +35,7 @@ Jeecg-boot 的前段UI框架，采用前后端分离方案，提供强大代码�
 git clone https://github.com/zhangdaiscott/jeecg-boot.git
 cd  jeecg-boot/ant-design-jeecg-vue
 ```
+yarn config set registry https://registry.npm.taobao.org/
 
 - 安装依赖
 ```
