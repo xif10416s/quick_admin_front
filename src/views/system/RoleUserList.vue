@@ -190,7 +190,6 @@
 
   export default {
     name: 'RoleUserList',
-    mixins: [JeecgListMixin],
     components: {
       UserRoleModal,
       SelectUserModal,
@@ -198,6 +197,7 @@
       UserModal,
       moment
     },
+    mixins: [JeecgListMixin],
     data() {
       return {
         model1: {},

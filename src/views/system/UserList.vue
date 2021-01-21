@@ -192,7 +192,6 @@
   import moment from 'moment'
   export default {
     name: "UserList",
-    mixins: [JeecgListMixin],
     components: {
       SysUserAgentModal,
       UserModal,
@@ -201,6 +200,7 @@
       UserRecycleBinModal,
       moment
     },
+    mixins: [JeecgListMixin],
     data() {
       return {
         description: '这是用户管理页面',

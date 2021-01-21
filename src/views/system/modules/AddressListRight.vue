@@ -48,8 +48,8 @@
 
   export default {
     name: 'AddressListRight',
-    mixins: [JeecgListMixin],
     components: {},
+    mixins: [JeecgListMixin],
     props: ['value'],
     data() {
       return {

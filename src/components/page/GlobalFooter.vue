@@ -1,24 +1,16 @@
 <template>
   <div class="footer">
-    <div class="links">
-      <a href="http://www.jeecg.com" target="_blank">JEECG 首页</a>
-      <a href="https://github.com/zhangdaiscott/jeecg-boot" target="_blank">
-        <a-icon type="github"/>
-      </a>
-      <a href="https://ant.design/">Ant Design</a>
-      <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/">Vue Antd</a>
-    </div>
-    <div class="copyright">
-      Copyright
-      <a-icon type="copyright"/>
-      2019 <span>JEECG开源社区 出品</span>
+    <div class='data'>
+      <img src="~@/assets/wxslogo.png" width="10%"/>
+      <p>江苏省无锡市锡山区安镇街道东翔路578号红豆财富广场1-2层、5-11层</p>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "LayoutFooter"
+    name: "LayoutFooter",
+    src: '../../assets/footer_logo.png'
   }
 </script>
 

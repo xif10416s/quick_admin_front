@@ -187,13 +187,13 @@
   ]
   export default {
     name: "JeecgDemoList",
-    mixins:[JeecgListMixin],
     components: {
       JeecgDemoModal,
       JSuperQuery,
       JeecgDemoTabsModal,
       JInput
     },
+    mixins:[JeecgListMixin],
     data() {
       return {
         description: '单表示例列表',
@@ -279,91 +279,91 @@
         fieldList:superQueryFieldList
       }
     },
-    methods: {
-      getQueryParams(){
-        //高级查询器
-        let sqp = {}
-        if(this.superQueryParams){
-          sqp['superQueryParams']=encodeURI(this.superQueryParams)
-          sqp['superQueryMatchType'] = this.superQueryMatchType
-        }
-        var param = Object.assign(sqp, this.queryParam, this.isorter ,this.filters);
-
-        param.field = this.getQueryField();
-        param.pageNo = this.ipagination.current;
-        param.pageSize = this.ipagination.pageSize;
-        delete param.birthdayRange; //范围参数不传递后台
-        return filterObj(param);
-      },
-      initDictConfig() {
-        console.log("--我才是真的方法!--")
-        //初始化字典 - 性别
-        initDictOptions('sex').then((res) => {
-          if (res.success) {
-            this.sexDictOptions = res.result;
-          }
-        });
-      },
-      onetomany: function () {
-        this.$refs.jeecgDemoTabsModal.add();
-        this.$refs.jeecgDemoTabsModal.title = "编辑";
-      },
-      //跳转单据页面
-      jump() {
-        this.$router.push({path: '/jeecg/helloworld'})
-      },
-      onBirthdayChange: function (value, dateString) {
-        console.log(dateString[0],dateString[1]);
-        this.queryParam.birthday_begin=dateString[0];
-        this.queryParam.birthday_end=dateString[1];
-      },
-      //列设置更改事件
-      onColSettingsChange (checkedValues) {
-        var key = this.$route.name+":colsettings";
-        Vue.ls.set(key, checkedValues, 7 * 24 * 60 * 60 * 1000)
-        this.settingColumns = checkedValues;
-        const cols = this.defColumns.filter(item => {
-          if(item.key =='rowIndex'|| item.dataIndex=='action'){
-            return true
-          }
-          if (this.settingColumns.includes(item.dataIndex)) {
-            return true
-          }
-          return false
-        })
-        this.columns =  cols;
-      },
-      initColumns(){
-        //权限过滤（列权限控制时打开，修改第二个参数为授权码前缀）
-        //this.defColumns = colAuthFilter(this.defColumns,'testdemo:');
-
-        var key = this.$route.name+":colsettings";
-        let colSettings= Vue.ls.get(key);
-        if(colSettings==null||colSettings==undefined){
-          let allSettingColumns = [];
-          this.defColumns.forEach(function (item,i,array ) {
-            allSettingColumns.push(item.dataIndex);
-          })
-          this.settingColumns = allSettingColumns;
-          this.columns = this.defColumns;
-        }else{
-          this.settingColumns = colSettings;
-          const cols = this.defColumns.filter(item => {
-            if(item.key =='rowIndex'|| item.dataIndex=='action'){
-              return true;
-            }
-            if (colSettings.includes(item.dataIndex)) {
-              return true;
-            }
-            return false;
-          })
-          this.columns =  cols;
-        }
-      }
-    },
     created() {
       this.initColumns();
     },
+    methods: {
+          getQueryParams(){
+            //高级查询器
+            let sqp = {}
+            if(this.superQueryParams){
+              sqp['superQueryParams']=encodeURI(this.superQueryParams)
+              sqp['superQueryMatchType'] = this.superQueryMatchType
+            }
+            var param = Object.assign(sqp, this.queryParam, this.isorter ,this.filters);
+
+            param.field = this.getQueryField();
+            param.pageNo = this.ipagination.current;
+            param.pageSize = this.ipagination.pageSize;
+            delete param.birthdayRange; //范围参数不传递后台
+            return filterObj(param);
+          },
+          initDictConfig() {
+            console.log("--我才是真的方法!--")
+            //初始化字典 - 性别
+            initDictOptions('sex').then((res) => {
+              if (res.success) {
+                this.sexDictOptions = res.result;
+              }
+            });
+          },
+          onetomany: function () {
+            this.$refs.jeecgDemoTabsModal.add();
+            this.$refs.jeecgDemoTabsModal.title = "编辑";
+          },
+          //跳转单据页面
+          jump() {
+            this.$router.push({path: '/jeecg/helloworld'})
+          },
+          onBirthdayChange: function (value, dateString) {
+            console.log(dateString[0],dateString[1]);
+            this.queryParam.birthday_begin=dateString[0];
+            this.queryParam.birthday_end=dateString[1];
+          },
+          //列设置更改事件
+          onColSettingsChange (checkedValues) {
+            var key = this.$route.name+":colsettings";
+            Vue.ls.set(key, checkedValues, 7 * 24 * 60 * 60 * 1000)
+            this.settingColumns = checkedValues;
+            const cols = this.defColumns.filter(item => {
+              if(item.key =='rowIndex'|| item.dataIndex=='action'){
+                return true
+              }
+              if (this.settingColumns.includes(item.dataIndex)) {
+                return true
+              }
+              return false
+            })
+            this.columns =  cols;
+          },
+          initColumns(){
+            //权限过滤（列权限控制时打开，修改第二个参数为授权码前缀）
+            //this.defColumns = colAuthFilter(this.defColumns,'testdemo:');
+
+            var key = this.$route.name+":colsettings";
+            let colSettings= Vue.ls.get(key);
+            if(colSettings==null||colSettings==undefined){
+              let allSettingColumns = [];
+              this.defColumns.forEach(function (item,i,array ) {
+                allSettingColumns.push(item.dataIndex);
+              })
+              this.settingColumns = allSettingColumns;
+              this.columns = this.defColumns;
+            }else{
+              this.settingColumns = colSettings;
+              const cols = this.defColumns.filter(item => {
+                if(item.key =='rowIndex'|| item.dataIndex=='action'){
+                  return true;
+                }
+                if (colSettings.includes(item.dataIndex)) {
+                  return true;
+                }
+                return false;
+              })
+              this.columns =  cols;
+            }
+          }
+        },
   }
 </script>
 <style scoped>

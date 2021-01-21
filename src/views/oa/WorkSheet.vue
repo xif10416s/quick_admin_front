@@ -38,10 +38,10 @@
 
   export default {
     name: 'WorkSheet',
-    mixins: [JeecgListMixin],
     components: {
       LeaveApplyModal
     },
+    mixins: [JeecgListMixin],
     data () {
       return {
         url: {

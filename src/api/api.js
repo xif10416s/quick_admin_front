@@ -52,6 +52,7 @@ const queryTreeListForDeptRole = (params)=>getAction("/sys/sysDepartPermission/q
 const queryDeptRolePermission = (params)=>getAction("/sys/sysDepartPermission/queryDeptRolePermission",params);
 const saveDeptRolePermission = (params)=>postAction("/sys/sysDepartPermission/saveDeptRolePermission",params);
 const queryMyDepartTreeList = (params)=>getAction("/sys/sysDepart/queryMyDeptTreeList",params);
+const queryDepartUserTreeList = (params)=>getAction("/kpi/evaluationResult/queryIdTree",params)
 
 //日志管理
 const deleteLog = (params)=>deleteAction("/sys/log/delete",params);
