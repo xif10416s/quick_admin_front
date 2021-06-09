@@ -17,7 +17,7 @@
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="toggle"/>
 
-      <span v-if="device === 'desktop'">欢迎进入无锡锡商银行员工评价系统</span>
+      <span v-if="device === 'desktop'">欢迎进入无锡锡商银行综合信息上报系统</span>
       <span v-else>无锡锡商银行</span>
 
       <user-menu :theme="theme"/>
